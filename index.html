@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>  
+    <link rel="stylesheet" href="node_modules/openmusic-piano-keyboard/Piano-Keyboard.css">
+    <script>
+      require('openmusic-piano-keyboard').register('openmusic-piano-keyboard');
+    </script>
+  </head>
+  <body>
+    <h1>PowerDue Virtual Keyboard</h1>
+    
+    <h2>Serial Connection</h2>
+    <label>Serial Port: </label>
+    <select id="serialportSelect">
+    </select>
+    <input type="button" value="Refresh" onclick="return runtime.onSerialRefresh()" />
+    <input type="button" value="Open" onclick="return runtime.onSerialOpen()" />
+    <input type="button" value="Close" onclick="return runtime.onSerialClose()" />
+    <h2>Keyboard</h2>    
+    <label>Octave </label><input id="octave" type="number" name="octave" step="1" min="0" max="10" value="5">
+    <label>Volume </label><input id="volume" type="range" min="0" max="127" value="80" step="1" onchange="runtime.volChange(this.value)" />
+    <br><br>
+    <openmusic-piano-keyboard id="keyboard" octaves="2" tabindex="0"></openmusic-piano-keyboard>
+    <br><br>
+    <h2>Track Playback</h2>
+    <select id="trackSelect">
+      <option value="Resources/smb.mid">Super Mario Theme</option>
+    </select>
+    <input type="button" value="Load Track" onclick="return runtime.onLoadTrack()"/>
+    <input type="button" value="Start" onclick="return runtime.onTrackStart()"/>
+    <input type="button" value="Stop" onclick="return runtime.onTrackStop()"/>
+    <input type="button" value="Dump Track" onclick="return runtime.onDumpTrack()"/>
+    <br><br>
+    <h2>Serial Output</h2>
+    <textarea id="console" rows="10" cols="80" readonly></textarea>
+    
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    var runtime = require('./renderer.js');   
+
+    // refresh the serial port list
+    runtime.onSerialRefresh();
+ 
+  </script>
+</html>

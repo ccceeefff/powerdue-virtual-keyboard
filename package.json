@@ -1,0 +1,28 @@
+{
+  "name": "powerdue-virtual-keyboard",
+  "version": "1.0.0",
+  "description": "A local testing tool for generating MIDI music on a PowerDue board.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "rebuild": "npm rebuild --runtime=electron --target=1.4.3 --disturl=https://atom.io/download/atom-shell --build-from-source"
+  },
+  "repository": "https://github.com/ccceeefff/powerdue-virtual-keyboard.git",
+  "keywords": [
+    "PowerDue",
+    "MIDI",
+    "Connected Embedded Systems",
+    "CMU"
+  ],
+  "author": "ccceeefff",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^1.4.1",
+    "electron-rebuild": "^1.5.7"
+  },
+  "dependencies": {
+    "midi-node": "https://github.com/ccceeefff/midi-node.git",
+    "openmusic-piano-keyboard": "^1.0.0",
+    "serialport": "^4.0.7"
+  }
+}
