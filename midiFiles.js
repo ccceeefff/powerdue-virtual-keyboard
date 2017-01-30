@@ -6,7 +6,17 @@ var files = [
 		name: "Super Mario Brothers",
 		path: "smb.mid",
     track: 1
-	}
+	},
+  // {
+  //   name: "Star Wars",
+  //   path: "starwars.mid",
+  //   track: 5
+  // },
+  // {
+  //   name: "Cantina",
+  //   path: "cantina-mod.mid",
+  //   track: 1
+  // }
 ];
 
 module.exports = {
