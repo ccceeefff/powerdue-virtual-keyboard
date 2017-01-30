@@ -9,8 +9,8 @@ var files = [
 	},
   // {
   //   name: "Star Wars",
-  //   path: "starwars.mid",
-  //   track: 5
+  //   path: "starwars-mod.mid",
+  //   track: 1
   // },
   // {
   //   name: "Cantina",

@@ -57,8 +57,9 @@ exports.onLoadTrackList = function(){
 exports.onLoadTrack = function(){
   midiFiles.byName(trackSelect.value)
     .then(function(file){
+      console.log(file.sequence.getTicks());
       var track = file.sequence.tracks[file.track];
-      var buf = track.toBuffer();
+      var buf = Buffer.concat([file.sequence.getHeader(), track.toBuffer()]);
       port.write(buf, function(){
         console.log("wrote buffer");
       }); 
