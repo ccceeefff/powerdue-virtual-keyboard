@@ -5,6 +5,7 @@
 var fs = require("fs");
 var midi = require("midi-node");
 var SerialPort = require('serialport');
+var midiFiles = require('./midiFiles');
 
 Number.prototype.clamp = function(min, max) {
   return Math.min(Math.max(this, min), max);
@@ -38,20 +39,33 @@ exports.volChange = function(e){
   port.write(new Buffer([0xF0, 0x04, e]));
 }
 
+exports.onLoadTrackList = function(){
+  // clear all previous options
+  var length = trackSelect.options.length;
+  for (i = 0; i < length; i++) {
+    trackSelect.options[i] = null;
+  }
+  
+  midiFiles.allNames().forEach(function(name){
+    var opt = document.createElement('option');
+    opt.value = name;
+    opt.innerHTML = name;
+    trackSelect.add(opt);
+  });
+}
+
 exports.onLoadTrack = function(){
-  console.log(trackSelect.value);
-  fs.readFile("./" + trackSelect.value, function(error, data){
-    if(error){
-      console.log("Failed to load file");
-    } else {
-      var sequence = midi.Sequence.fromBuffer(data);
-      var track = sequence.tracks[1];
+  midiFiles.byName(trackSelect.value)
+    .then(function(file){
+      var track = file.sequence.tracks[file.track];
       var buf = track.toBuffer();
       port.write(buf, function(){
         console.log("wrote buffer");
-      });        
-    }
-  });
+      }); 
+    })
+    .catch(function(err){
+      konsoleLog(err);
+    });
 }
 
 exports.onTrackStart = function(){
