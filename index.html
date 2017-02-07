@@ -33,6 +33,8 @@
     <input type="button" value="Dump Track" onclick="return runtime.onDumpTrack()"/>
     <br><br>
     <h2>Serial Output</h2>
+    <input type="button" value="Clear Output" onclick="clearOutput()"/>
+    <br>
     <textarea id="console" rows="10" cols="80" readonly></textarea>
     
   </body>
@@ -44,6 +46,10 @@
     // refresh the serial port list
     runtime.onSerialRefresh();
     runtime.onLoadTrackList();
+
+    function clearOutput() {
+        document.getElementById('console').value = "";
+    }
  
   </script>
 </html>
