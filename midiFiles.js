@@ -17,6 +17,26 @@ var files = [
 		path: "future-mod2.mid",
     track: 0
 	},
+  {
+		name: "Star Wars - Empire",
+		path: "empire-mod.mid",
+    track: 0
+	},
+  {
+		name: "Indiana Jones",
+		path: "indy-mod.mid",
+    track: 0
+	},
+  {
+		name: "Top Gun",
+		path: "topgun-mod.mid",
+    track: 0
+	},
+  // {
+	// 	name: "Ghostbusters",
+	// 	path: "gbusters-mod.mid",
+  //   track: 0
+	// }
   // {
   //   name: "Star Wars",
   //   path: "starwars-mod.mid",
