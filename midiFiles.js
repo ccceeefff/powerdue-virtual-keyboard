@@ -12,6 +12,11 @@ var files = [
     path: "supermario.mid",
     track: 0
   },
+  {
+		name: "Back to the Future",
+		path: "future-mod2.mid",
+    track: 0
+	},
   // {
   //   name: "Star Wars",
   //   path: "starwars-mod.mid",
