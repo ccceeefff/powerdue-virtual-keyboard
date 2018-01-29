@@ -32,11 +32,11 @@ var files = [
 		path: "topgun-mod.mid",
     track: 0
 	},
-  {
-    name: "Maple Leaf",
-    path: "maple_m.mid",
-    track: 1
-  }
+  // {
+  //   name: "Maple Leaf",
+  //   path: "maple_m.mid",
+  //   track: 1
+  // }
   // {
 	// 	name: "Ghostbusters",
 	// 	path: "gbusters-mod.mid",
